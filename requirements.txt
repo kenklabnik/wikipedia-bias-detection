@@ -1,0 +1,16 @@
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+nltk
+spacy
+textblob
+openpyxl
+xlrd
+tqdm
+jupyter
+requests
+beautifulsoup4
+transformers
+torch
