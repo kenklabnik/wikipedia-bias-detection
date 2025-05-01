@@ -1,5 +1,37 @@
 bias-venv/
+venv/
+.env/
+.venv/
+
+# Datasets and scraped data
 datasets/
+scraped_data/
+
+# Python cache and compiled files
 __pycache__/
-*.pyc
+*.py[cod]
+*.so
+*.pyd
+
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
+
+# VS Code workspace and settings
+.vscode/
+*.code-workspace
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# Model files and large outputs
+*.h5
+*.pkl
+*.joblib
+*.pt
+*.onnx
+
+# Log and temp files
+*.log
+*.tmp
+*.swp
