@@ -89,7 +89,7 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
-5. **Open and run** `notebooks/randy_bias_analysis.ipynb`
+5. **Open and run** `notebooks/main_project.ipynb`
 
 ---
 
