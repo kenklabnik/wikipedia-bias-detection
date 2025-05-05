@@ -1,49 +1,53 @@
 # Wikipedia Bias Detection — MayCodePudding
 
-This project investigates ideological bias in Wikipedia articles using expert-labeled training data and machine learning. It is built on a refined pipeline ("Randy’s Update") that enhances the original model with deeper text features, more consistent predictions, and interpretability tools. The system uses a custom lexicon of bias-related words and merges headline context into the input to strengthen signal detection.
+This project analyzes ideological bias in Wikipedia articles using a custom-trained machine learning pipeline based on expert-labeled political data. The model reflects "Randy’s Update" — a definitive version focused on real-world generalization. It removes internal metadata like publisher or article topic to ensure predictions work reliably on scraped Wikipedia content. The model is trained exclusively on SG2 (from the BABE corpus) and uses interpretable features derived from the text itself.
 
 ---
 
 ## 📌 Project Goal
 
-Wikipedia is written by the public and can reflect unintentional bias. This project aims to:
+Wikipedia content is often edited by the public, making it vulnerable to unintentional political or ideological bias. This project aims to:
 
-- Train a supervised ML model to detect political or ideological bias at the sentence level
-- Generate article-wide bias scores based on aggregated sentence predictions
-- Use labeled news datasets and lexical features for improved precision
-- Scrape and analyze live Wikipedia articles for bias quantification
+- Train a robust, interpretable model on expert-labeled bias data
+- Predict sentence-level bias across any Wikipedia article
+- Generate a full-article bias score based on those predictions
+- Support scalable scraping and analysis for entire topics
 
 ---
 
 ## 🚀 Key Features
 
-- **Enhanced model pipeline** using `TfidfVectorizer`, `StandardScaler`, and `LogisticRegression`
-- **Merged input features** from sentence and headline (`combined_text`)
-- **Lexicon-based feature engineering** (`lexicon_match_count`)
-- Sentence-level bias prediction with output probabilities
-- Full Wikipedia scraping and scoring workflow
+  - Trained on SG2 only
+  - Uses `combined_text` (sentence + headline) and `lexicon_match_count`
+  - Removes `outlet`, `topic`, `type`, and `label_opinion` for real-world generalization
+- End-to-end pipeline using `TfidfVectorizer`, `StandardScaler`, and `LogisticRegression`
+- Sentence-by-sentence bias prediction with probability scoring
+- Wikipedia scraping and sentence tokenization built-in
 
 ---
 
 ## 📂 Datasets Used
 
-- `final_labels_SG2.csv` — Expert-labeled dataset (SG2 from BABE corpus)
-- `bias_word_lexicon.xlsx` — List of bias-indicative terms
-- `news_headlines_usa_biased.csv` & `news_headlines_usa_neutral.csv` — Merged with SG2 for headline context
+- `final_labels_SG2.csv` — Expert-labeled political statements
+- `bias_word_lexicon.xlsx` — Bias-related terms for lexical feature
+- `news_headlines_usa_biased.csv` & `news_headlines_usa_neutral.csv` — To enrich sentence context
 
 ---
 
-## 📊 Model Performance (Final Pipeline)
+## 📊 Final Model Performance
 
-- **Accuracy**: ~89%
-- **ROC AUC**: ~0.95
-- Lexicon and headline-enhanced features improve both generalization and interpretability
+| Configuration                            | Accuracy | ROC AUC |
+|-----------------------------------------|----------|---------|
+| SG2 with `combined_text` + lexicon only | **89%**  | **0.9495** |
+| SG2 with all metadata removed           | 73%      | 0.8039   |
+
+The final version achieves the best balance of performance and deployability by focusing on general-purpose features.
 
 ---
 
 ## 🔍 Try It Out
 
-Use the function below to test the model on a Wikipedia article:
+To test the model on a live Wikipedia article:
 
 ```python
 results = predict_bias_from_article("Donald Trump", pipeline)
@@ -52,26 +56,26 @@ print(f"Bias Score: {results['bias_score']} ({results['biased_sentences']} of {r
 
 ---
 
-## 🖥️ How to Run This Repository Locally
+## 🖥️ Run the Project Locally
 
-1. **Clone the repository**  
+1. **Clone the repo**
 ```bash
 git clone https://github.com/your-username/MayCodePudding-Randy.git
 cd MayCodePudding-Randy
 ```
 
-2. **Create and activate a virtual environment**  
+2. **Set up a virtual environment**
 ```bash
 python3 -m venv venv
-source venv/bin/activate  # (Windows: venv\Scripts\activate)
+source venv/bin/activate  # Windows: venv\Scripts\activate
 ```
 
-3. **Install dependencies**  
+3. **Install the requirements**
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Launch the notebook**  
+4. **Launch Jupyter Notebook**
 ```bash
 jupyter notebook
 ```
@@ -80,12 +84,10 @@ jupyter notebook
 
 ---
 
-## 🛠️ Requirements
+## ✅ Requirements
 
 - Python 3.8+
 - pip
 - Jupyter Notebook
 
 ---
-
-Let me know if you'd like help updating the `requirements.txt` file next or auto-generating a minimal version based on the final notebook.
