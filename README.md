@@ -17,6 +17,7 @@ Wikipedia content is often edited by the public, making it vulnerable to uninten
 
 ## 🚀 Key Features
 
+- **Randy’s Model**:
   - Trained on SG2 only
   - Uses `combined_text` (sentence + headline) and `lexicon_match_count`
   - Removes `outlet`, `topic`, `type`, and `label_opinion` for real-world generalization
@@ -32,9 +33,17 @@ Wikipedia content is often edited by the public, making it vulnerable to uninten
 - `bias_word_lexicon.xlsx` — Bias-related terms for lexical feature
 - `news_headlines_usa_biased.csv` & `news_headlines_usa_neutral.csv` — To enrich sentence context
 
+An example insight derived from SG2 shows how certain news outlets vary in their proportion of biased sentences:
+
+<p align="center">
+  <img src="images/bias_percent_news.png" width="500"/>
+</p>
+
+This chart demonstrates how the model and dataset together reveal trends in media tone, even before applying it to Wikipedia articles.
+
 ---
 
-## 📊 Final Model Performance
+## 📊 Final Model Performance (Randy’s Update)
 
 | Configuration                            | Accuracy | ROC AUC |
 |-----------------------------------------|----------|---------|
@@ -56,7 +65,7 @@ print(f"Bias Score: {results['bias_score']} ({results['biased_sentences']} of {r
 
 ---
 
-## 🖥️ Run the Project Locally
+## 🖥️ How to Run the Project Locally
 
 1. **Clone the repo**
 ```bash
