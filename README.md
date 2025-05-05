@@ -1,51 +1,91 @@
-# Wikipedia Bias Detection — MayCodePudding 
+# Wikipedia Bias Detection — MayCodePudding
 
-This project analyzes text from Wikipedia and news headlines to detect political or ideological bias using machine learning. It uses a combination of labeled datasets, a bias word lexicon, and TF-IDF-based classification to build a supervised bias detector. It also supports scraping live Wikipedia articles and generating sentence-level bias scores.
+This project investigates ideological bias in Wikipedia articles using expert-labeled training data and machine learning. It is built on a refined pipeline ("Randy’s Update") that enhances the original model with deeper text features, more consistent predictions, and interpretability tools. The system uses a custom lexicon of bias-related words and merges headline context into the input to strengthen signal detection.
 
-## Project Goal
+---
 
-Wikipedia is written and edited by the public, which means bias can unintentionally slip through. This project aims to:
+## 📌 Project Goal
 
-- Train a supervised machine learning model on real-world labeled sentences
-- Predict sentence-level bias in any given Wikipedia article
-- Provide a measurable bias score based on sentence predictions
-- Enable batch scraping and analysis of politically sensitive topics
+Wikipedia is written by the public and can reflect unintentional bias. This project aims to:
 
-## Key Features
+- Train a supervised ML model to detect political or ideological bias at the sentence level
+- Generate article-wide bias scores based on aggregated sentence predictions
+- Use labeled news datasets and lexical features for improved precision
+- Scrape and analyze live Wikipedia articles for bias quantification
 
-- Uses TF-IDF vectorization + logistic regression for classification
-- Handles text preprocessing, categorical encoding, and feature scaling in one pipeline
-- Supports sentence-by-sentence bias detection with adjustable thresholds
-- Automatically scrapes and evaluates Wikipedia articles by topic
-- Tracks sentence bias probability and keywords using a custom lexicon
+---
 
+## 🚀 Key Features
 
-## Datasets Used
+- **Enhanced model pipeline** using `TfidfVectorizer`, `StandardScaler`, and `LogisticRegression`
+- **Merged input features** from sentence and headline (`combined_text`)
+- **Lexicon-based feature engineering** (`lexicon_match_count`)
+- Sentence-level bias prediction with output probabilities
+- Full Wikipedia scraping and scoring workflow
 
-- **Final Labels SG1 / SG2 / MBIC** — Real-world political sentences labeled for bias
-- **Bias Word Lexicon** — List of potentially biased terms
-- **Headline Sets** — Biased and neutral news headlines used for feature support
+---
 
-## Model Performance
+## 📂 Datasets Used
+
+- `final_labels_SG2.csv` — Expert-labeled dataset (SG2 from BABE corpus)
+- `bias_word_lexicon.xlsx` — List of bias-indicative terms
+- `news_headlines_usa_biased.csv` & `news_headlines_usa_neutral.csv` — Merged with SG2 for headline context
+
+---
+
+## 📊 Model Performance (Final Pipeline)
 
 - **Accuracy**: ~89%
-- **F1-Score**: ~0.89
-- **ROC AUC**: 0.95  
-- Best results achieved using `max_features=20000`, `ngram_range=(1,3)`, and `C=1.0`
+- **ROC AUC**: ~0.95
+- Lexicon and headline-enhanced features improve both generalization and interpretability
 
-## Wikipedia Integration
+---
 
-You can enter any Wikipedia article title, and the system will:
+## 🔍 Try It Out
 
-- Scrape its content
-- Break it into sentences
-- Predict bias per sentence
-- Return an overall bias score
-
-## Try It Out
-
-To run the prediction on a Wikipedia article:
+Use the function below to test the model on a Wikipedia article:
 
 ```python
 results = predict_bias_from_article("Donald Trump", pipeline)
 print(f"Bias Score: {results['bias_score']} ({results['biased_sentences']} of {results['total_sentences']} sentences)")
+```
+
+---
+
+## 🖥️ How to Run This Repository Locally
+
+1. **Clone the repository**  
+```bash
+git clone https://github.com/your-username/MayCodePudding-Randy.git
+cd MayCodePudding-Randy
+```
+
+2. **Create and activate a virtual environment**  
+```bash
+python3 -m venv venv
+source venv/bin/activate  # (Windows: venv\Scripts\activate)
+```
+
+3. **Install dependencies**  
+```bash
+pip install -r requirements.txt
+```
+
+4. **Launch the notebook**  
+```bash
+jupyter notebook
+```
+
+5. **Open and run** `notebooks/randy_bias_analysis.ipynb`
+
+---
+
+## 🛠️ Requirements
+
+- Python 3.8+
+- pip
+- Jupyter Notebook
+
+---
+
+Let me know if you'd like help updating the `requirements.txt` file next or auto-generating a minimal version based on the final notebook.
