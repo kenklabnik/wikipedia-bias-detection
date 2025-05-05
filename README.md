@@ -17,7 +17,6 @@ Wikipedia content is often edited by the public, making it vulnerable to uninten
 
 ## 🚀 Key Features
 
-- **Randy’s Model**:
   - Trained on SG2 only
   - Uses `combined_text` (sentence + headline) and `lexicon_match_count`
   - Removes `outlet`, `topic`, `type`, and `label_opinion` for real-world generalization
