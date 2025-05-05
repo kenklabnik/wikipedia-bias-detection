@@ -1,6 +1,6 @@
 # Wikipedia Bias Detection — MayCodePudding
 
-This project analyzes ideological bias in Wikipedia articles using a custom-trained machine learning pipeline based on expert-labeled political data. The model reflects "Randy’s Update" — a definitive version focused on real-world generalization. It removes internal metadata like publisher or article topic to ensure predictions work reliably on scraped Wikipedia content. The model is trained exclusively on SG2 (from the BABE corpus) and uses interpretable features derived from the text itself.
+This project analyzes ideological bias in Wikipedia articles using a custom-trained machine learning pipeline based on expert-labeled political data. It removes internal metadata like publisher or article topic to ensure predictions work reliably on scraped Wikipedia content. The model is trained exclusively on SG2 (from the BABE corpus) and uses interpretable features derived from the text itself.
 
 ---
 
