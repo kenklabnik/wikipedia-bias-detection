@@ -60,6 +60,18 @@ The SG2 dataset was the largest and had the most balanced classes, explaining it
 
 ---
 
+👥 Team
+
+This project was created by:
+
+- [**Randy Overbeek**](https://github.com/uberbeek) – TripleTen Data Science Graduate
+- [**Eli Adams**](https://github.com/eli-adams) – TripleTen Data Science Graduate
+- [**Ken Klabnik**](https://github.com/kenklabnik) – TripleTen Data Science Graduate
+
+Team name: *Totally Bias*
+
+---
+
 ## 🔍 Try It Out
 
 To test the model on a live Wikipedia article:
