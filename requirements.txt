@@ -1,16 +1,7 @@
 pandas
 numpy
 matplotlib
-seaborn
 scikit-learn
 nltk
-spacy
-textblob
-openpyxl
-xlrd
-tqdm
+wikipediaapi
 jupyter
-requests
-beautifulsoup4
-transformers
-torch
