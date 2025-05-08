@@ -51,7 +51,7 @@ This chart demonstrates how the model and dataset together reveal trends in medi
 
 ## 📊 Final Model Performance
 
-- Logistic regression model with TF-ID vectorizer
+- Logistic regression model with TF-IDF vectorizer
 - Model trained on SG2: ROC-AUC = 0.809
 - Model trained on SG1: ROC-AUC = 0.751
 - Model trained on MBIC: ROC-AUC = 0.725
@@ -85,29 +85,30 @@ print(f"Bias Score: {results['bias_score']} ({results['biased_sentences']} of {r
 
 ## 🖥️ How to Run the Project Locally
 
-1. **Clone the repo**
+1. **Clone the repo**  
 ```bash
-git clone https://github.com/your-username/MayCodePudding-Randy.git
+git clone https://github.com/uberbeek/MayCodePudding-Randy.git
 cd MayCodePudding-Randy
 ```
 
-2. **Set up a virtual environment**
+2. **Set up a virtual environment**  
 ```bash
 python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
 ```
 
-3. **Install the requirements**
+3. **Install the requirements**  
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Launch Jupyter Notebook**
+4. **Launch Jupyter Notebook**  
 ```bash
 jupyter notebook
 ```
 
-5. **Open and run** `notebooks/main_project.ipynb`
+5. **Open and run the Notebook**  
+ `notebooks/main_project.ipynb`
 
 ---
 
@@ -115,6 +116,13 @@ jupyter notebook
 
 - Python 3.8+
 - pip
-- Jupyter Notebook
+- Jupyter Notebook (installed via `requirements.txt`)
+
+Key Python packages (installed automatically via `requirements.txt`):
+
+- pandas, numpy, matplotlib
+- scikit-learn
+- nltk
+- wikipediaapi
 
 ---
