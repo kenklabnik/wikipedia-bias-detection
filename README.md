@@ -1,6 +1,6 @@
 # Wikipedia Bias Detection — MayCodePudding
 
-This project analyzes ideological bias in Wikipedia articles using a custom-trained machine learning pipeline based on expert-labeled political data. It removes internal metadata like publisher or article topic to ensure predictions work reliably on scraped Wikipedia content. The model is trained exclusively on SG2 (from the BABE corpus) and uses interpretable features derived from the text itself.
+This project analyzes ideological bias in Wikipedia articles using a custom-trained machine learning pipeline based on expert-labeled political data. It removes internal metadata like publisher or article topic to ensure predictions work reliably on scraped Wikipedia content. The model is trained on data from the BABE Media Bias Dataset and uses interpretable features derived from the text itself.
 
 ---
 
@@ -17,20 +17,27 @@ Wikipedia content is often edited by the public, making it vulnerable to uninten
 
 ## 🚀 Key Features
 
-  - Trained on SG2 only
+  - Trained on SG1, SG2, and MBIC datasets
+  - SG2 is the primary dataset, but SG1 and MBIC are compared in separate analyses
   - Uses `combined_text` (sentence + headline) and `lexicon_match_count`
   - Removes `outlet`, `topic`, `type`, and `label_opinion` for real-world generalization
 - End-to-end pipeline using `TfidfVectorizer`, `StandardScaler`, and `LogisticRegression`
 - Sentence-by-sentence bias prediction with probability scoring
-- Wikipedia scraping and sentence tokenization built-in
+- Wikipedia scraping and sentence tokenization built in
 
 ---
 
 ## 📂 Datasets Used
 
-- `final_labels_SG2.csv` — Expert-labeled political statements
+- `final_labels_SG2.csv` — 3,673 political statements labelled by 5 experts
+- `final_labels_SG1.csv` — 1,700 political statements labelled by 8 experts
+- `final_labels_MBIC.csv` — 1,700 political statements labelled by crowdsourcers
 - `bias_word_lexicon.xlsx` — Bias-related terms for lexical feature
 - `news_headlines_usa_biased.csv` & `news_headlines_usa_neutral.csv` — To enrich sentence context
+
+Dataset source:
+- https://www.kaggle.com/datasets/timospinde/babe-media-bias-annotations-by-experts
+- https://aclanthology.org/2021.findings-emnlp.101.pdf
 
 An example insight derived from SG2 shows how certain news outlets vary in their proportion of biased sentences:
 
@@ -42,14 +49,14 @@ This chart demonstrates how the model and dataset together reveal trends in medi
 
 ---
 
-## 📊 Final Model Performance (Randy’s Update)
+## 📊 Final Model Performance
 
-| Configuration                            | Accuracy | ROC AUC |
-|-----------------------------------------|----------|---------|
-| SG2 with `combined_text` + lexicon only | **89%**  | **0.9495** |
-| SG2 with all metadata removed           | 73%      | 0.8039   |
+- Logistic regression model with TF-ID vectorizer
+- Model trained on SG2: ROC-AUC = 0.809
+- Model trained on SG1: ROC-AUC = 0.751
+- Model trained on MBIC: ROC-AUC = 0.725
 
-The final version achieves the best balance of performance and deployability by focusing on general-purpose features.
+The SG2 dataset was the largest and had the most balanced classes, explaining its relatively high performance.
 
 ---
 
