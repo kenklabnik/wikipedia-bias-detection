@@ -77,7 +77,7 @@ Team name: *Totally Bias*
 This project was developed as part of the **May 2025 TripleTen Data Science Code Pudding**. Competing against two other teams, our team — *Totally Bias* — received **first place**, earning the highest score from the judges! 🎉
 
 Our final presentation is available here:
-- 📽️ [Presentation Video (starts at 20:00)](https://www.youtube.com/live/NL0FdMxYwbo?t=1200) – Our segment runs from **20:00 to 35:00**
+- 📽️ [Presentation Video](https://www.youtube.com/live/NL0FdMxYwbo?t=1200) — *Our team presents from 20:00 to 35:00*
 - 📊 [Slide Deck (PDF)](presentation/Wikipedia_Bias_Presentation_May2025.pdf)
 
 ---
